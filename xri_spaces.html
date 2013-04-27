@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>XRI Spaces</title>
+</head>
+<body>
+<h1>XRI Spaces (X-Spaces)</h1>
+
+<a href="#">Tuple-Spaces and Linda Spaces</a> were covered previously. An XRI Space is similar to a Linda Space, with the differences noted below.  An XRI Space is also called an X-Space.
+
+The X-Space model has no synchronous operations, so there is no need for the Linda operations try_out or try_in. 
+
+Also there are restrictions on the tuples that can go into an X-Space. 
+
+First, all tuples in an X-Space are 4-tuples and represent an assertion.  The first element of an X-Space tuple is the subject of the assertion, the second element the predicate, and the third element the object.  Using an English sentence as an analogy, the first element is the noun phrase, the second element the verb phrase, and the third element is the direct object.  The fourth element is an XRI i-number that identifies the tuple.  Note that for any X-Space operation the fourth element is optional. 
+
+If not explicit and the operation is adding a tuple to the X-Space then the fourth element is implicitly {$next!($base)}, which means that before insertion this variable will be evaluated and replaced with a single segment XRI that begins with base address of the graph being operated on, and ends with the next assignable persistent identifier, which will be unique within the context of this graph.
+
+If not explicit and the operation is reading, or testing for, a tuple in the X-Space then the fourth element is implicitly {}, which indicates we don't care. The {} will match any value, as long as there is at least one.  That value also will not be bound into a variable.
+
+Second, all elements of an X-Space tuple must be single segment XRIs.
+
+X-Space has five operations: put, take, read, test, and drop. The effects of these operations are very similar to Linda operations, except that X-Space operations use variable expressions to possibly work on or retrieve more than one tuple,  where the Linda operations each work on one tuple.  X-Space expressions were covered in <a href="#">X-Space Expressions</a>
+
+The put operation is equivalent to the Linda operation try_out. 
+
+The take operation is equivalent to the Linda operation try_in.
+
+The read operation is equivalent to the Linda operation try_copy.
+
+The test operation is equivalent to the Linda operation readp.
+
+The drop operation is equivalent to the Linda operation inp.
