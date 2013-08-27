@@ -65,7 +65,7 @@ Differences between ADDI and HTTP
 * ADDI Resource Identifiers (ARIs) are based on Extensible Resource Identifiers (XRIs), so they are semantically rich and can express more that the same size URI
 * ARI resolution is decentralized and trust based, using a trust metric computed from peers, HTTP resolution is DNS based with no trust metric
 * HTTP is connection-oriented, ADDI supports connection-oriented and connection-less
-* ADDI has Link Contracts (a concept developed in the OASIS XDI Technical Committee), which support the following capabilities not built into HTTP:
+* ADDI has Link Contracts (a concept developed in the OASIS XDI Technical Committee) 
 * HTTP content consists of headers followed by MIME content, ADDI content consists of a stream of ADDI context state changes
 
 Differences between ADDI and XDI
